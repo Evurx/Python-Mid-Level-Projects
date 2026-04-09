@@ -111,13 +111,23 @@
 #         break
 
 
-#------------------------------------------------------------------Phone Book--------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------Phone Book(JSON)--------------------------------------------------------------------------------------------------------
 
-    
+# import json
 
+# try:
+#      with open("rehber.json","r", encoding="utf-8") as dosya:
+#           phoneList=json.load(dosya)
+# except FileNotFoundError:
+#     phoneList={}
+          
 
 
 # phoneList={}
+
+# def kaydet():
+#       with open("rehber.json", "w" , encoding="utf-8") as dosya:
+#             json.dump(phoneList, dosya, ensure_ascii=False,indent=2)
 
 # while True:
          
@@ -129,61 +139,75 @@
 #     }
 #         print(menu)
         
-#         secim=int(input("Seçiminizi yapınız: "))
+#         secim=(input("Seçiminizi yapınız: "))
 
-#         if secim<=0 or secim>=5:
-#              print("Lütfen 1 ile 4 arası bir sayı giriniz")
-#         else:
-#             if secim==1:
+#         if secim=="1":
 #                 issim=input("Eklemek istediğiniz kişinin ismini giriniz")
 #                 numara=input("Numarayı giriniz")
 #                 phoneList[issim]=numara
-#             elif secim==2:
+#                 kaydet()
+#                 print("Kişi Kaydedildi")
+#         elif secim=="2":
 #                  if not phoneList:
 #                       print("Kayıtlı kişi bulunmuyor")
 #                  for issim,numara in phoneList.items():
 #                       print(f"{issim} --> {numara}")
-#             elif secim==3:
-#                  print(issim)
+#         elif secim=="3":
 #                  sil=input("Silmek istediğiniz kişinin ismini siliniz")
 #                  if sil in phoneList:
 #                       phoneList.pop(sil)
+#                       kaydet()
 #                       print("Kişi silindi")
 #                  else:
 #                     print("Kayıtlı issim bulunamadı!")
-#             elif secim==4:
+#         elif secim=="4":
 #                  print("Uygulamadan çıktınız")
 #                  break
                       
 #-----------------------------------------------------------------------ATM UYGULAMASI-------------------------------------------------------------------------------------------------
+#class ATM:
+#     def __init__(self):
+#         self.bakiye = 0
 
-# bakiye=0
+#     def bakiye_goster(self):
+#         print(f"Güncel Bakiyeniz {self.bakiye} TL dir")
+
+#     def para_yatir(self, miktar):
+#         self.bakiye = self.bakiye + miktar
+#         print(f"{miktar} TL yatırıldı. Güncel Bakiye {self.bakiye} TL")
+
+#     def para_cek(self, miktar):
+#         if miktar <= self.bakiye:
+#             self.bakiye = self.bakiye - miktar
+#             print(f"{miktar} TL çekildi. Güncel Bakiye {self.bakiye} TL")
+#         else:
+#             print("Yetersiz Bakiye!")
+
+
+# hesap = ATM()
 
 # while True:
-    
-#  menu={
-#     "1":"Bakiye Görüntüle",
-#     "2":"Para Yatır",
-#     "3":"Para Çek",
-#     "4":"Çıkış"
-# }
-#  print(menu)
-#  islem=input("Lütfen yapmak istediğinz işlemin rakamını giriniz.")
+#     menu={
+#         "1":"Bakiye Görüntüle",
+#         "2":"Para Yatır",
+#         "3":"Para Çek",
+#         "4":"Çıkış"
+#     }
+#     print(menu)
+#     islem = input("İşlem Seçiniz")
 
-#  if islem=="1":
-#   print(f"Güncel bakiyeniz {bakiye} TL dir.")
-#  elif islem=="2":
-#   yeniBakiye=int(input("Lütfen yatırmak istediğiniz mevlayı giriniz: "))
-#   bakiye=bakiye+yeniBakiye
-#  elif islem=="3":
-#   paraCek=int(input(f"Çekmek istediğiniz bakiyeyi giriniz. Güncel bakiyeniz: {bakiye} TL"))
-#   if paraCek<=bakiye:
-#    bakiye=bakiye-paraCek
-#    print(f"Paranız çekilmiştir güncel bakiyeniz {bakiye} TL")
-#   elif paraCek>bakiye:
-#    print("Lütfen sahip olduğunuz paradan daha fazlasını çekmeye çalışmayınız !")
-#  elif islem=="4":
-#   print("Uygulamadan Çıktınız !")
-#   break
+#     if islem=="1":
+#         hesap.bakiye_goster()
+#     elif islem =="2":
+#         miktar = int(input("Yatırılcak miktar: "))
+#         hesap.para_yatir(miktar)
+#     elif islem =="3":
+#         miktar=int(input("Cekilcek Miktar: "))
+#         hesap.para_cek(miktar)
+#     elif islem== "4":
+#         print("Çıkış Yapıldı")
+#         break
+
+
 
 
